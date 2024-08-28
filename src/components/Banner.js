@@ -4,7 +4,7 @@ import {ArrowRightCircle} from "react-bootstrap-icons" /* Un icono importado de 
 import headerImage from "../assets/img/header-img.svg"
 import 'animate.css' //Da animaciones
 import TrackVisibility from "react-on-screen"//Ayuda a que se activen las animaciones solo cuando el usuario las vea
-import { isVisible } from "@testing-library/user-event/dist/utils"
+//import { isVisible } from "@testing-library/user-event/dist/utils"
 
 //import 'animate.css';
 //import TrackVisibility from 'react-on-screen';
@@ -16,7 +16,7 @@ export const Banner = () => {
     const [text, setText] = useState("");//Indica la parte de la palabra que se esta mostrando
     const period = 2000; //Indica cuanto se demora en hacer la transicion entre cada palabra
     const [delta, setDelta] = useState(300 - Math.random() * 100); //Delta ayuda a determina que tan rapido viene una letra despues de escribir la primera
-    const [index, setIndex] = useState('');
+    //const [index, setIndex] = useState('');
 
     /*Esta funcion es la que escribe o elimina las palabras o las letras de las palabras, 
     chatpgt: configura un efecto que se ejecuta cuando 'text' cambia
@@ -30,7 +30,7 @@ export const Banner = () => {
 
         return () => {clearInterval(ticker)};//chatgpt: Limpia el intervalo cuando el efecto se desmonta o antes de configurarlo de nuevo
 
-    }, [text])
+    }, [delta, tick, text])
 
     //Esta función es la que actualiza el texto mostrado en la pantalla letra por letra
     const tick = () => {
