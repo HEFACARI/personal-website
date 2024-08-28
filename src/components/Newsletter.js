@@ -10,7 +10,7 @@
 
 import { Alert } from "bootstrap";
 import { useState, useEffect } from "react";
-import {Container, Row, Col} from "react-bootstrap"
+import { Row, Col} from "react-bootstrap"
 
 export const Newsletter =  ({onValidated, status, message}) => {
     const [email, setEmail] = useState("");
