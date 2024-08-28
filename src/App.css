@@ -1,0 +1,724 @@
+/**************** Esto venia por defecto ***************/
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+/*************** Custom Fonts ***************/
+@font-face {
+  font-family: Centra;
+  src: url('./assets/font/CentraNo2-Bold.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Centra;
+  src: url('./assets/font/CentraNo2-Medium.ttf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Centra;
+  src: url('./assets/font/CentraNo2-Book.ttf');
+  font-weight: 400;
+}
+
+
+
+
+
+/*************** Default CSS ***************/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
+
+body{
+  font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
+  background-color: #121212 !important;
+  color: #fff !important;
+  font-family: 'Centra', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+
+
+
+
+/*************** Navbar Css ***************/
+nav.navbar {
+  padding: 18px 0; /*Agrega un relleño en la parte superior del navbar*/
+  position: fixed;/*El elemento fija una posicion espesifica en la ventana del navegador*/
+  width: 100%; /*Obliga a utilizar todo el ancho del pagina*/
+  top: 0;
+  z-index: 9999;
+  transition:  0.32s ease-in-out;
+}
+nav.navbar.scrolled {
+  padding: 0px 0;
+  background-color: #121212;
+}
+nav.navbar a.navbar-brand {
+    width: 9%;
+}
+nav.navbar .navbar-nav .nav-link.navbar-link {
+  font-weight: 400; 
+  color: #fff !important;
+  letter-spacing: 0.8px;
+  padding: 0 25px;
+  font-size: 18px;
+  opacity: 0.75;
+}
+nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
+nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+    opacity: 1;
+}
+span.navbar-text {
+    display: flex;/*Acomoda los botontes*/
+    align-items: center;
+}
+.social-icon {
+    display: inline-block;
+    margin-left: 14px;
+}
+.social-icon a {
+    width: 42px; /*Agranda la anchura*/
+    height: 42px; /*Agranda la altura*/ 
+    background: rgba(217, 217, 217, 0.1); /*Le da color*/
+    display: inline-flex; /*Ordena la posicion de los iconos con la a en horizontal*/
+    border-radius: 50%; /*Vuelve redondos las as*/
+    margin-right: 6px; /*Separa las a*/
+    align-items: center; /*Alinia*/
+    justify-content: center; /*Centra los iconos en las a*/
+    line-height: 1;
+    border: 1px solid rgba(255, 255, 255, 0.5);/*Agrega un borde*/
+}
+.social-icon a::before {
+    content: "";
+    width: 42px;
+    height: 42px;
+    position: absolute;/*coloca los iconos en la mitad de las as*/
+    background-color: #ffffff;
+    border-radius: 50%;
+    transform: scale(0); /*Pone los icono en la mitad de las as*/
+	transition: 0.3s ease-in-out; /*Hace que la transicion de transform sea mas lenta*/
+}
+.social-icon a:hover::before {
+    transform: scale(1); /*Hace la animacion en la seccion social-icon*/
+}
+.social-icon a img {
+	width: 40%;
+	z-index: 1;
+	transition: 0.3s ease-in-out;
+}
+.social-icon a:hover img {
+	filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%) hue-rotate(346deg) brightness(95%) contrast(86%);
+  /*Permite ver los iconos aun con la animacion puesta*/
+}
+.navbar-text button {
+  font-weight: 700; /*Rellena las letras del boton*/
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 18px 34px;
+  font-size: 18px;
+  margin-left: 18px;
+	position: relative;
+	background-color: transparent;
+	transition: 0.3s ease-in-out;
+}
+.navbar-text button span {
+  z-index: 1;
+}
+.navbar-text button::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: 0.3s ease-in-out;
+}
+.navbar-text button:hover {
+  color: #121212; /*Cuando se haga la animacion en el boton que dice "let´s Connect las letras cambiaran al color designado" */
+}
+.navbar-text button:hover::before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+nav.navbar .navbar-toggler:active,
+nav.navbar .navbar-toggler:focus {
+	outline: none;
+    box-shadow: none;
+}
+nav.navbar .navbar-toggler-icon {
+  width: 24px;
+  height: 17px;
+  background-image: none;
+  position: relative;
+  border-bottom: 2px solid #fff;
+  transition: all 300ms linear;
+  top: -2px;
+}
+nav.navbar .navbar-toggler-icon:focus {
+	border-bottom: 2px solid #fff;
+}
+nav.navbar .navbar-toggler-icon:after,
+nav.navbar .navbar-toggler-icon:before {
+	width: 24px;
+	position: absolute;
+	height: 2px;
+	background-color: #fff;
+	top: 0;
+	left: 0;
+	content: '';
+	z-index: 2;
+	transition: all 300ms linear;
+}
+nav.navbar .navbar-toggler-icon:after {
+	top: 8px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+	transform: rotate(45deg);
+	background-color: #fff;
+	height: 2px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+	transform: translateY(8px) rotate(-45deg);
+	background-color: #fff;
+	height: 2px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+	border-color: transparent;
+}
+
+
+
+
+
+/*************** BANNER ***************/
+.banner{
+  margin-top: 0; 
+  padding: 250px 0 100px 0; /*lado superior, lado derecho, lado inferior, lado izquierdo*/
+  background-image: url('./assets/img/banner-bg.png');
+  background-position: top center; /*centra el fondo*/
+  background-size: cover; /*cubre todo el fondo con la imagen puesta*/
+  background-repeat: no-repeat;
+}
+
+.banner .tagline {
+  font-weight: 700; /*Relleno para las letras*/
+  letter-spacing: 0.8px;
+  padding: 8px 10px;
+  background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);/*Genera un degradado*/
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  margin-bottom: 16px;
+  display: inline-block; /*Ajusta el componente para que solamente utilice su bloque y no toda la pagina*/
+}
+
+.banner h1 {
+  font-size: 65px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1; /*Controla el tamaño de espacio entre cada linea*/
+  margin-bottom: 20px;
+  display: block;
+}
+
+.banner p {
+  color: #B8B8B8;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  width: 96%;
+}
+
+.banner button {
+  /*color:#fff;*/
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 60px;
+  letter-spacing: 0.8px;
+  display: flex; /*Mueve el boton hacia la izquierda*/
+  align-items: center;
+}
+
+.banner button svg {
+  font-size: 25px;
+  margin-left: 10px;
+  transition: 0.3s ease-in-out;
+  line-height: 1;
+}
+
+.banner button:hover svg {
+  margin-left: 25px;
+}
+
+.banner img {
+  animation: updown 3s linear infinite; /*updown: nombre de la aplicacion, 3s: cantidad de tiempo que se tarda la animacion en bajar y subir, linear: velocidad contante de la animacion, infinite: la animacion se repita infinitamente*/
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-20px); /*posiciona el elemento 20 píxeles hacia arriba desde su posición original.*/
+  }
+  50% {
+    transform: translateY(20px); /*mueve el elemento 20 píxeles hacia abajo desde su posición original.*/
+  }
+  100% {
+      transform: translateY(-20px); /*devuelve el elemento a la posición inicial, 20 píxeles hacia arriba.*/
+  }
+}
+
+.txt-rotate > .wrap {
+  border-right: 0.08em solid #666;
+}
+
+
+
+
+
+/*************** SKILLS ***************/
+.skills{
+  padding: 0 0 50px 0;
+  position: relative;
+}
+
+.skills-bx{
+  background: #151515;/*Le da dolor al fonto de .skills-bx*/
+  border-radius: 64px; /*Vuelve los bordes de un cuadrado redondeados*/
+  text-align: center;
+  padding: 60px 50px;
+  margin-top: -60px;
+}
+
+.skills h5{
+  font-size: 25px;
+  font-weight: 700px;
+}
+
+.skills p{
+  color: #B8B8B8;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;/*Distancia entre cada renglon*/
+  margin: 14px 0 75px 0;
+}
+
+.skills-slider{
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.skills-slider .item img{
+  width: 50%;
+  margin: 0 auto 15px auto;
+}
+
+.background-image-left{
+  /*border: 1px solid green;*/
+  top: 28%;
+  position: absolute; /*Cambia la posicion de esta imagen*/
+  bottom: 0;
+  width: 40%;
+  z-index: -4;
+}
+
+
+
+
+
+/*************** PROJECTS ***************/
+.project {
+  padding: 80px 0;
+  position: relative;
+  background-color: black;
+}
+
+.project h2 {
+	font-size: 45px; /*Tamaño letra*/
+	font-weight: 700; /*Especifica el grueso o el peso de la letra*/
+  text-align: center; 
+}
+
+.project p {
+  color: #B8B8B8;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  margin: 14px auto 30px auto;
+  text-align: center; /*establece la alineación horizontal del contenido a nivel de línea dentro de un elemento de bloque o caja de celda-tabla*/
+  width: 56%;
+}
+
+.project .nav.nav-pills {
+  width: 72%;
+  margin: 0 auto;
+  border-radius: 50px;
+  background-color: rgb(255 255 255 / 10%);
+  overflow: hidden; /*oculta el contenido que se sale de la caja, es decir, mostrará sólo el contenido que cabe dentro del contenedor y el resto no se ve.*/
+}
+
+.project .nav.nav-pills .nav-item {
+  width: 33.33333%;
+}
+
+/*************** Codigo que se puede utilizar ***************/
+/*Se coloca el .active para que el color de fondo solo se le aplique a la seccion seleccionado
+.project .nav.nav-pills .nav-item .nav-link.active{
+  background-color: green;
+}
+
+.project .nav.nav-pills .nav-item .nav-link:hover {
+  background-color: #0056b3; Color del texto cuando se pasa el ratón 
+  color: black;
+}*/
+
+.project .nav.nav-pills .nav-link {
+  background-color: transparent;/*Quita el color al "objeto"*/
+  border-radius: 0; /*Le da un borde redondeado*/
+  padding: 17px 0;
+  color: #fff;/*Color de las letras*/
+  width: 100%;
+  font-size: 17px;/*Tamaño de la letra*/
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  z-index: 0;
+  /*border: 1px solid green;*/
+}
+
+.project .nav.nav-pills .nav-link::before {
+  content: "";/*Lo tiene que llevar para que se vea el elemento*/
+  position: absolute;/*Lo tiene que llevar para que se vea el elemento*/
+  width: 0; /*Ayuda a realizar el efecto*/
+  height: 100%;/*Lo tiene que llevar para que se vea el elemento*/
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  top: 0;/*Se utiliza para rellenar de color el "objeto" en la parte de arriba*/
+  left: 0;/*Se utiliza para rellenar de color el "objeto" del lado izquierdo*/
+  z-index: -1;/*Ayuda a que las letra se vean ya que coloca todos los colores y efectos debajo de las letras o palabra*/
+  transition: 0.3s ease-in-out;
+  /*border: 1px solid blue;*/
+}
+
+/*.active ayuda a que se aplique el color solo al "objeto" seleccionado*/
+.project .nav.nav-pills .nav-link.active::before {
+  width: 100% !important;/*Ayuda hacer el efecto pasa de 0 a 100*/
+}
+
+.project .nav.nav-pills .nav-link.active {
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.nav-link#projects-tabs-tab-first {
+  border: 1px solid rgba(255, 255, 255, 0.5);/*Deja un border a la "primera tabla"*/
+  border-radius: 55px 0px 0px 55px;
+}
+
+.nav-link#projects-tabs-tab-second {
+  border-top: 1px solid rgba(255, 255, 255, 0.5);/*Deja un border arriba a la "segunda tabla"*/
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);/*Deja un border abajo a la "segunda tabla"*/
+}
+
+.nav-link#projects-tabs-tab-third {
+  border: 1px solid rgba(255, 255, 255, 0.5);/*Deja un border a la "tercera tabla"*/
+  border-radius: 0 55px 55px 0;
+}
+
+.proj-imgbx {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;/*El contenido que se extiende más allá de los límites del contenedor se oculta y no se muestra*/
+  margin-bottom: 24px;
+}
+
+/***** .proj-imgbx::before y .proj-imgbx:hover::before Ayuda hacer la transicion vertical en la zona "projects" *****/
+.proj-imgbx::before {
+  content: "";
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  opacity: 0.85;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  transition: 0.4s ease-in-out;
+}
+
+.proj-imgbx:hover::before {
+  height: 100%;
+}
+
+.proj-txtx {
+  position: absolute; /*Ayuda A posicionar las "palabras que estaban debajo de las imagenes*/
+  text-align: center;
+  top: 65%; /*Ayuda A posicionar las "palabras hacia arriba*/
+  left: 50%;/*Ayuda A posicionar las "palabras hacia la izquierda*/
+  transform: translate(-50%, -50%);/*es una técnica efectiva para centrar un elemento dentro de un contenedor, especialmente cuando el elemento está absolutamente posicionado*/
+  transition: 0.5s ease-in-out;
+  width: 100%;/*Ayuda a ocupar el 100% del contenedor*/
+  opacity: 0; /*Ayuda a que no se vean las palabras*/
+}
+
+/* se coloca .proj-imgbx:hover ya que cuando se le pase el raton sobre la imagen este mostrar las palabras
+no se hace .proj-txtx ya que solo se mostrara la palabra o hara el efecto cuando se pase el raton sobre las 
+palabras ocultas*/
+.proj-imgbx:hover .proj-txtx {
+  top: 50%;
+  opacity: 1;
+}
+
+.proj-txtx h4 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1.1em;
+}
+
+.proj-txtx span {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.8px;
+}
+
+.background-image-right {
+  top: 20%;
+  position: absolute;/*Cambia la posicion*/
+  bottom: 0;
+  width: 35%;/*Cambia el tamaño*/
+  right: 0;
+  z-index: -4;
+  border: 1px solid green;
+}
+
+
+
+
+
+/*************** CONTACT ***************/
+.contact {
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  padding: 60px 0 200px 0;
+}
+.contact img {
+  width: 92%;
+}
+.contact h2 {
+	font-size: 45px;
+	font-weight: 700;
+  margin-bottom: 30px;
+}
+
+
+/*Inicio Edicion de los inputs*/
+.contact form input, .contact form textarea {
+  /* width: 100%; Lo comente porque vuelve los inputs muy pequeños*/
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  color: #fff;
+  margin: 0 0 8px 0;
+  padding: 18px 26px;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  transition: 0.3s ease-in-out; /*Cuando se da click en el input este cambia a blanco con una transicion*/
+}
+
+.contact form input:focus, .contact form textarea:focus {
+  background: rgba(255, 255, 255, 1);
+  color: #121212;
+}
+.contact form input::placeholder, .contact form textarea::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}
+.contact form input:focus::placeholder, .contact form textarea:focus::placeholder {
+  color: #121212;
+  opacity: 0.8;
+}
+/* Final Edicion inputs */
+
+
+/* Inicio Edicion Boton */
+.contact form button {
+  font-weight: 700;/*Relleno de las palabras*/
+  color: #000;
+  background-color: #fff;
+  padding: 14px 48px;
+  font-size: 18px;
+  margin-top: 25px;
+  border-radius: 0;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+.contact form button span {
+  z-index: 1;
+  position: relative;
+}
+.contact form button:hover {
+  color: #fff;
+}
+.contact form button::before {
+  content: "";
+  background: #121212;
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  transition: 0.3s ease-in-out;
+}
+.contact form button:hover::before {
+  width: 100%;
+}
+/* Final Edicion Boton */
+
+
+
+
+
+/*************** FOOTER ***************/
+.footer {
+  padding: 0 0 50px 0;
+  background-image: url('./assets/img/footer-bg.png');
+  background-position: center center;
+  background-size: cover; /*Se usa para ajustar el tamaño de una imagen de fondo para que cubra completamente el contenedor*/
+  background-repeat: no-repeat; /*Indica que la imagen de fondo no debe repetirse ni horizontal ni verticalmente.*/
+}
+
+.newsletter-bx {
+  background: #FFFFFF;
+  border-radius: 55px;
+  color: #121212;
+  padding: 85px 125px;
+  margin-bottom: 80px;
+  margin-top: -122px;
+}
+
+.newsletter-bx h3 {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.2em;
+}
+
+.new-email-bx {
+  background: #fff;
+  padding: 5px;
+  border-radius: 20px;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+}
+
+.new-email-bx::before {
+  content: "";
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  border-radius: 20px;
+  position: absolute;
+  z-index: -1;
+  top: -1px;
+  left: -1px;
+  bottom: -1px;
+  right: -1px;
+}
+.new-email-bx::after {
+  content: "";
+  background: #fff;
+  border-radius: 20px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.new-email-bx input {
+  width: 100%;
+  color: #121212;
+  font-weight: 500;
+  background: transparent;
+  border: 0;
+  padding: 0 15px;
+}
+.new-email-bx button {
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  padding: 20px 65px;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-radius: 18px;
+}
+
+.footer img {
+  width: 26%;
+}
+
+.footer p {
+  font-weight: 400;
+  font-size: 14px;
+  color: #B8B8B8;
+  letter-spacing: 0.5px;
+  margin-top: 20px;
+}
